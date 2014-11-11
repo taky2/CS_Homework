@@ -5,8 +5,8 @@ import java.util.*;
  * 
  * This program demonstrates the various levels efficiency pertaining to 
  * accessing ArrayLists and LinkedLists. It generates a lists of random
- * numbers and then quantifies the process of accessing or modifying 
- * contents using different methods and index orders.
+ * numbers and then quantifies the time taken to perform each process of 
+ * accessing or modifying contents using different methods and index orders.
  * 
  */
 
