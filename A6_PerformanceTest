@@ -1,0 +1,122 @@
+import java.util.*;
+
+/*
+ * Author: Dustin Fay
+ * 
+ * This class demonstrates the various levels efficiency pertaining to 
+ * accessing ArrayLists and LinkedLists. It generates a lists of random
+ * numbers and then quantifies the process of accessing or modifying 
+ * contents using different methods and index orders.
+ * 
+ */
+
+public class PerformaceTest {
+
+	public static void main(String[] args) {
+		
+		ArrayList<Integer> arrayList = new ArrayList<Integer>();
+		ArrayList<Integer> testArrayList = new ArrayList<Integer>();
+		LinkedList<Integer> linkedList = new LinkedList<Integer>();
+		LinkedList<Integer> testLinkedList = new LinkedList<Integer>();
+		Iterator<Integer> itr = testLinkedList.iterator();
+		Random rand = new Random();
+		long startTime;
+		long endTime;
+		long duration;
+
+		//populate arrrayList and linkedList with random integers
+		for (int i = 0; i<1000; i++ ){
+			int randNum = rand.nextInt(1000);
+			arrayList.add(randNum);
+			linkedList.add(randNum);
+		}
+		//create a identical copy of arrayList for testing purposes
+		testArrayList.addAll(arrayList);
+	
+		System.out.printf("Length of time required to access lists of "
+						+ "1,000 random integers\nfor each given curcumstance.\n\n");
+	
+/**
+ * This section contains tests for the ArrayLists		
+ */	 
+		// ArrayList get method (low index to high index)
+		startTime = System.nanoTime();		 
+		for (int i = 0; i < 1000; i++) {
+			testArrayList.get(i);
+		}
+		endTime = System.nanoTime();
+		duration = endTime - startTime;
+		System.out.printf("Duration of ArrayList get method (index: LOW to HIGH): "
+						+ "%,d nanoseconds\n", duration);		
+
+		// ArrayList get method (high index to low index)
+		startTime = System.nanoTime();	 
+		for (int i = 999; i >= 0; i--) {
+			testArrayList.get(i);
+		}
+		endTime = System.nanoTime();
+		duration = endTime - startTime;
+		System.out.printf("Duration of ArrayList get method (index: HIGH to LOW): "
+						+ "%,d nanoseconds\n", duration);	
+				
+		//re-populate the testArrayList with original random numbers
+		if (testArrayList.size() == 0)
+			testArrayList.addAll(arrayList);
+		else {
+			for (int i = 0; i<1000; i++){
+				testArrayList.set(i,arrayList.get(i));
+			}
+		}
+		
+		// ArrayList remove (low index to high index)
+		startTime = System.nanoTime();
+		for (int i = 0; i < 1000; i++) {
+			testArrayList.remove(0);
+		}
+		endTime = System.nanoTime();
+		duration = endTime - startTime;
+		System.out.printf("Duration of ArrayList remove method (index: LOW to HIGH): "
+						+ "%,d nanoseconds\n", duration);	
+		
+		//re-populate the testArrayList with original random numbers
+		if (testArrayList.size() == 0)
+			testArrayList.addAll(arrayList);
+		else {
+			for (int i = 0; i<1000; i++){
+				testArrayList.set(i,arrayList.get(i));
+			}
+		}
+		// ArrayList remove (high index to low index)
+		startTime = System.nanoTime();
+		for (int i = 999; i >= 0; i--) {
+			testArrayList.remove(i);
+		}
+		endTime = System.nanoTime();
+		duration = endTime - startTime;
+		System.out.printf("Duration of ArrayList remove method (index: HIGH to LOW): "
+						+ "%,d nanoseconds\n", duration);
+
+/**
+ * This section contains tests for LinkedLists		
+ */
+		//LinkedList get
+		startTime = System.nanoTime();
+		for (int i = 0; i < 1000; i++) {
+			linkedList.get(i);
+		}
+		endTime = System.nanoTime();
+		duration = endTime - startTime;
+		System.out.printf("Duration of LinkedList get method (index: LOW to HIGH): "
+						+ "%,d nanoseconds\n", duration);
+		//LinkedList iterator
+		startTime = System.nanoTime();
+		for (itr = linkedList.listIterator(0); itr.hasNext();) {
+			itr.next();
+		}
+		endTime = System.nanoTime();
+		duration = endTime - startTime;
+		System.out.printf("Duration of LinkedList iterator (index: LOW to HIGH): "
+						+ "%,d nanoseconds\n", duration);
+		
+	}//end of main
+}//end of class Assignment6_PerformanceTimer
