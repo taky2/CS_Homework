@@ -10,7 +10,7 @@ import java.util.*;
  * 
  */
 
-public class PerformaceTest {
+public class A6_PerformaceTest {
 
 	public static void main(String[] args) {
 		
