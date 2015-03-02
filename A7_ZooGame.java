@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @author Dustin Fay
  */
 
-public class A7_ooGame
+public class A7_ZooGame
 {
 
     /**
