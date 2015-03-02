@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="A5_SearchEngineGUI">
+   <children>
+      <Label layoutX="55.0" layoutY="14.0" text="Website to search:" />
+      <TextField fx:id="urlTextField" layoutX="173.0" layoutY="9.0" onAction="#urlButton" prefHeight="26.0" prefWidth="415.0" />
+      <Button fx:id="urlButton" layoutX="530.0" layoutY="9.0" mnemonicParsing="false" onAction="#urlButton" text="Index" AnchorPane.rightAnchor="13.0" />
+      <Label layoutX="14.0" layoutY="50.0" text="Keyword(s) to search for:" />
+      <TextField fx:id="keyTextField" layoutX="173.0" layoutY="45.0" onAction="#keywordButton" prefHeight="26.0" prefWidth="415.0" />
+      <Button fx:id="keywordButton" layoutX="527.0" layoutY="45.0" mnemonicParsing="false" onAction="#keywordButton" text="Search" AnchorPane.rightAnchor="13.0" />
+      <TextArea fx:id="results" editable="false" layoutX="13.0" layoutY="137.0" prefHeight="571.0" prefWidth="674.0" />
+      <Label fx:id="connectionStatus" layoutX="14.0" layoutY="83.0" />
+      <Label fx:id="stopwordLoadStatus" layoutX="14.0" layoutY="108.0" />
+      <Button fx:id="startOverButton" layoutX="636.0" layoutY="100.0" mnemonicParsing="false" onAction="#resetButton" text="Reset" AnchorPane.rightAnchor="13.0" />
+      
+   </children>
+</AnchorPane>
