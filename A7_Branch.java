@@ -2,7 +2,7 @@
 /**
  * Branch is required for the tree data structures
  * 
- * Requires ZooGame.java
+ * Requires A7_ZooGame.java
  * 
  * @author Dustin Fay
  */
