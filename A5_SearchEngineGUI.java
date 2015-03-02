@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /*
  * This class controls all the GUI for the main searching functions within the interface 
  * 
- *      Requires SearchEngineGUI.fxml
+ *      Requires A5_SearchEngineGUI.fxml
  */
 public class A5_SearchEngineGUI {
     // Reference to Main Application
